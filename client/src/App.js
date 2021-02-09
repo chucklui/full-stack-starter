@@ -13,7 +13,7 @@ import Login from './Login';
 import Passwords from './Passwords';
 import Register from './Register';
 import SectionItems from './SectionItems';
-
+import Components from './Components';
 function App() {
   return (
     <AuthContextProvider>
@@ -22,6 +22,9 @@ function App() {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route path="/components">
+            <Components />
           </Route>
           <Route path="/login">
             <Login />
