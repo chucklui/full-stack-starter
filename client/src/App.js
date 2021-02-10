@@ -14,6 +14,7 @@ import Passwords from './Passwords';
 import Register from './Register';
 import SectionItems from './SectionItems';
 import Components from './Components';
+import Sections from './Sections/Sections';
 function App() {
   return (
     <AuthContextProvider>
@@ -37,6 +38,9 @@ function App() {
               <Register />
             </Route>
           )}
+          <Route path="/sections">
+            <Sections />
+          </Route>
           <AuthProtectedRoute path="/sectionItems">
             <SectionItems />
           </AuthProtectedRoute>
