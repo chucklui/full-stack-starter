@@ -15,6 +15,8 @@ import Register from './Register';
 import SectionItems from './SectionItems';
 import Components from './Components';
 import Sections from './Sections/Sections';
+import Skills from './Skills/Skills';
+
 function App() {
   return (
     <AuthContextProvider>
@@ -40,6 +42,9 @@ function App() {
           )}
           <Route path="/sections">
             <Sections />
+          </Route>
+          <Route path="/skills">
+            <Skills />
           </Route>
           <AuthProtectedRoute path="/sectionItems">
             <SectionItems />
