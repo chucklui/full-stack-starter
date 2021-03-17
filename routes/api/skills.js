@@ -30,7 +30,7 @@ router.get('/:id', async function(req, res) {
     }
 });
 
-/*router.patch('/:id', interceptors.requireLogin, async function(req, res) {
+router.patch('/:id', async function(req, res) {
     const row = await models.Skill.findByPk(req.params.id);
     if (row) {
       try {
@@ -42,6 +42,6 @@ router.get('/:id', async function(req, res) {
     } else {
       res.status(HttpStatus.NOT_FOUND).end();
     }
-  }); */
+  });
 
 module.exports = router;
