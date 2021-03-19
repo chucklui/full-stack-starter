@@ -47,7 +47,7 @@ function SkillsForm() {
 
                 <button className="btn btn-primary" type="submit">Submit</button>
             </form>
-            <p>{JSON.stringify(skills)}</p>
+            <p>{JSON.stringify(skills.name)}</p>
         </main>
     );
 }

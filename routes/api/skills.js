@@ -44,4 +44,14 @@ router.patch('/:id', async function(req, res) {
     }
   });
 
+  router.delete('/:id', async function(req, res) {
+    const row = await models.Skill.findByPk(req.params.id);
+    if (row) {
+      await row.destroy();
+      res.status(HttpStatus.OK).end();
+    } else {
+      res.status(HttpStatus.NOT_FOUND).end();
+    }
+  });
+
 module.exports = router;
