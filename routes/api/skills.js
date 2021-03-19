@@ -1,10 +1,14 @@
+'use strict';
+
+const HttpStatus = require('http-status-codes');
+const interceptors = require('../interceptors');
 const express = require('express');
 
 const router = express.Router();
 
 const models = require('../../models'); //M
 
-router.get('/', async function(req, res) {
+router.get('/', async function(req, res) { //M
     const row = await models.Skill.findAll();
     res.json(row);
 });
@@ -20,7 +24,7 @@ router.post('/', async function (req, res) { //M C of CRUDE
     }
 });
 
-router.get('/:id', async function(req, res) {
+router.get('/:id', async function(req, res) { //M
     const row = await models.Skill.findByPk(req.params.id);
     if (row) {
   
@@ -30,7 +34,7 @@ router.get('/:id', async function(req, res) {
     }
 });
 
-router.patch('/:id', async function(req, res) {
+router.patch('/:id', interceptors.requireLogin, async function(req, res) { //M
     const row = await models.Skill.findByPk(req.params.id);
     if (row) {
       try {
@@ -44,7 +48,7 @@ router.patch('/:id', async function(req, res) {
     }
   });
 
-  router.delete('/:id', async function(req, res) {
+  router.delete('/:id', interceptors.requireLogin, async function(req, res) { //M
     const row = await models.Skill.findByPk(req.params.id);
     if (row) {
       await row.destroy();
